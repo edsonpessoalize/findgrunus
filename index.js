@@ -53,7 +53,9 @@ function gameOver()
     updateStatusElement(scoreContainerElem,"none")
     updateStatusElement(roundContainerElem,"none")
 
-    const gameOverMessage = `Perdeu! Placar final - <span class = 'badge'>${score}</span>Aperte 'Encontre o Goblin' para jogar novamente`
+    const gameOverMessage = score > 0
+    ? `Fim de jogo! Placar final - <span class='badge'>${score}</span>`
+    : `Perdeu! Placar final - <span class='badge'>${score}</span>`
 
     updateStatusElement(currentGameStatusElem,"block",primaryColor,gameOverMessage)
 
@@ -248,7 +250,7 @@ function initializeNewRound()
     shufflingInProgress = true
     cardsRevealed = false
 
-    updateStatusElement(currentGameStatusElem, "block", primaryColor, "Embaralhanddo...")
+    updateStatusElement(currentGameStatusElem, "block", primaryColor, "Embaralhando...")
     
     updateStatusElement(roundElem, "block", primaryColor, `Rodada <span class='badge'>${roundNum}</span>`)
 
